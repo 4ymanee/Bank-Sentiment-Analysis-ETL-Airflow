@@ -1,0 +1,13 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# GitHub Linguist Overrides
+# Masquer les fichiers générés / lockfiles pour reclasser Python en langage principal
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Ignorer le package-lock.json des statistiques de langage GitHub
+package-lock.json linguist-generated=true
+Dashboard/Frontend/package-lock.json linguist-generated=true
+Dashboard/Frontend/package-lock.json linguist-vendored
+
+# Ignorer les données JSON statiques des statistiques de code
+*.json linguist-documentation=true
+Dashboard/Frontend/public/data/* linguist-documentation=true
