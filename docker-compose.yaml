@@ -1,0 +1,148 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Docker Compose — CIH Bank Pipeline complet
+# Airflow + PostgreSQL + FastAPI Backend + React Frontend
+# ─────────────────────────────────────────────────────────────────────────────
+
+x-airflow-common: &airflow-common
+  build:
+    context: .
+    dockerfile: Dockerfile
+  environment: &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow/airflow
+    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
+    DB_NAME: CIH_Bank
+    DB_USER: root
+    DB_PASSWORD: root
+    DB_HOST: postgres-cih
+    DB_PORT: '5432'
+    APIFY_API_TOKEN: ${APIFY_API_TOKEN}
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - ./Scripts:/scripts
+  depends_on:
+    postgres-airflow:
+      condition: service_healthy
+    postgres-cih:
+      condition: service_healthy
+  networks:
+    - cih_network
+
+services:
+
+  # ── PostgreSQL Airflow ─────────────────────────────────────────────────────
+  postgres-airflow:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres_airflow_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    networks:
+      - cih_network
+
+  # ── PostgreSQL CIH Bank (Bronze / Silver / Gold) ───────────────────────────
+  postgres-cih:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: CIH_Bank
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_cih_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "root", "-d", "CIH_Bank"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    networks:
+      - cih_network
+
+  # ── Airflow Init ───────────────────────────────────────────────────────────
+  airflow-init:
+    <<: *airflow-common
+    command: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Aymane --lastname ElIdrissi --role Admin --email admin@cihbank.ma && airflow connections add 'cih_bank_postgres' --conn-type 'postgres' --conn-host 'postgres-cih' --conn-schema 'CIH_Bank' --conn-login 'root' --conn-password 'root' --conn-port '5432'"
+    depends_on:
+      postgres-airflow:
+        condition: service_healthy
+      postgres-cih:
+        condition: service_healthy
+
+  # ── Airflow Webserver ──────────────────────────────────────────────────────
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  # ── Airflow Scheduler ──────────────────────────────────────────────────────
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  # ── FastAPI Backend ────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./Dashboard/Backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Dashboard/Backend:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      DB_NAME: CIH_Bank
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_HOST: postgres-cih
+      DB_PORT: '5432'
+    depends_on:
+      postgres-cih:
+        condition: service_healthy
+    networks:
+      - cih_network
+
+  # ── React Frontend ─────────────────────────────────────────────────────────
+  frontend:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./Dashboard/Frontend:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm start"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - HOST=0.0.0.0
+      - BROWSER=none
+    depends_on:
+      - backend
+    networks:
+      - cih_network
+
+volumes:
+  postgres_airflow_data:
+  postgres_cih_data:
+
+networks:
+  cih_network:
+    driver: bridge

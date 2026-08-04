@@ -1,0 +1,85 @@
+title,city,address,phone,textTranslated,publishedAtDate
+CIH Bank Agence Maarif,Casablanca,"123 Rue Maarif, Casablanca 20100",0522123456,Service rapide et personnel très aimable. Je recommande cette agence.,2025-11-15T10:30:00.000Z
+CIH Bank Agence Maarif,Casablanca,"123 Rue Maarif, Casablanca 20100",0522123456,Trop d'attente pour une simple opération. Il faut améliorer la gestion des files.,2025-12-03T14:20:00.000Z
+CIH Bank Agence Maarif,Casablanca,"123 Rue Maarif, Casablanca 20100",0522123456,Agence propre et bien organisée. Le conseiller était très professionnel.,2026-01-20T09:15:00.000Z
+CIH Bank Agence Maarif,Casablanca,"123 Rue Maarif, Casablanca 20100",0522123456,Expérience catastrophique. Personne ne savait répondre à ma question.,2026-02-10T16:45:00.000Z
+CIH Bank Agence Hay Hassani,Casablanca,"45 Boulevard Hay Hassani, Casablanca 20200",0522654321,Bonne agence dans l'ensemble. Le directeur est à l'écoute des clients.,2025-10-05T11:00:00.000Z
+CIH Bank Agence Hay Hassani,Casablanca,"45 Boulevard Hay Hassani, Casablanca 20200",0522654321,Je suis client depuis 5 ans et le service se dégrade de plus en plus.,2025-11-22T08:30:00.000Z
+CIH Bank Agence Hay Hassani,Casablanca,"45 Boulevard Hay Hassani, Casablanca 20200",0522654321,Ouverture de compte rapide et sans complications. Très satisfait.,2026-01-08T13:00:00.000Z
+CIH Bank Agence Guéliz,Marrakech,"78 Avenue Mohammed V, Guéliz, Marrakech 40000",0524789012,Agence moderne avec un bon accueil. Les conseillers sont compétents.,2025-09-18T10:00:00.000Z
+CIH Bank Agence Guéliz,Marrakech,"78 Avenue Mohammed V, Guéliz, Marrakech 40000",0524789012,Impossible de joindre l'agence par téléphone. Très frustrant.,2025-12-14T15:30:00.000Z
+CIH Bank Agence Guéliz,Marrakech,"78 Avenue Mohammed V, Guéliz, Marrakech 40000",0524789012,Le GAB est souvent en panne. C'est le seul point négatif.,2026-02-28T17:00:00.000Z
+CIH Bank Agence Agdal,Rabat,"15 Avenue de France, Agdal, Rabat 10000",0537456789,Très bonne agence. Rapide et efficace pour les virements internationaux.,2025-10-30T09:45:00.000Z
+CIH Bank Agence Agdal,Rabat,"15 Avenue de France, Agdal, Rabat 10000",0537456789,Personnel souriant et accueillant. Dommage que les horaires soient limités.,2026-01-15T12:00:00.000Z
+CIH Bank Agence Agdal,Rabat,"15 Avenue de France, Agdal, Rabat 10000",0537456789,J'ai attendu plus d'une heure pour un simple retrait. Inadmissible.,2026-03-05T14:30:00.000Z
+CIH Bank Agence Tanger Centre,Tanger,"22 Rue de la Liberté, Tanger 90000",0539321654,Excellente agence avec un service client irréprochable. Bravo à l'équipe.,2025-11-01T10:15:00.000Z
+CIH Bank Agence Tanger Centre,Tanger,"22 Rue de la Liberté, Tanger 90000",0539321654,L'application mobile est top mais l'agence physique manque de personnel.,2026-01-25T11:30:00.000Z
+CIH Bank Agence Tanger Centre,Tanger,"22 Rue de la Liberté, Tanger 90000",0539321654,Service moyen. Rien d'exceptionnel mais rien de mauvais non plus.,2026-03-12T16:00:00.000Z
+Guichet CIH Bank,Agadir,"9FQQ+RPM, Agadir 80000, Maroc",,,2025-12-16T13:47:39.711Z
+Guichet CIH Bank,Agadir,"9FQQ+RPM, Agadir 80000, Maroc",,"ATTENTION aux distributeurs automatiques CIH !
+
+L'écran n'affiche pas l'option « Retrait ». Elle est uniquement disponible dans un sous-menu. C'est pourquoi j'ai annulé la transaction. Un Marocain m'a expliqué la procédure et j'ai réessayé. Cette fois, ça a fonctionné. Mais mon compte a été débité deux fois ! La banque CIH locale se dégage de toute responsabilité ! Il s'agit soit d'un cas de négligence, soit d'une escroquerie !",2025-07-21T11:04:01.341Z
+Guichet CIH Bank,Agadir,"9FQQ+RPM, Agadir 80000, Maroc",,,2024-09-08T11:59:33.261Z
+Guichet CIH Bank,Agadir,"9FQQ+RPM, Agadir 80000, Maroc",,,2022-08-26T16:56:22.740Z
+Guichet CIH Bank,Agadir,"9FQQ+RPM, Agadir 80000, Maroc",,,2022-05-17T12:34:23.912Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2026-06-04T12:28:54.022Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2026-05-19T14:16:47.334Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2026-05-02T07:32:09.636Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2026-02-27T13:24:29.820Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2025-11-02T12:43:26.216Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2025-07-02T13:58:56.735Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2024-12-06T13:22:10.342Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2024-10-11T02:45:43.017Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2024-03-25T20:17:14.533Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2023-11-01T14:18:27.607Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2023-09-10T13:27:19.488Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2023-04-21T13:19:23.928Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2023-03-10T14:18:13.668Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2022-11-25T12:41:34.728Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2022-11-22T10:51:59.761Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2022-06-23T15:46:26.779Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2022-04-29T13:35:56.470Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2022-01-31T11:09:14.109Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,,2021-09-01T00:48:39.278Z
+CIH Banque,Rabat,"KM 3, Avenue Mohamed VI, 5 Rue du Rif, Rabat 10000, Maroc",+212522479479,Système en panne tous les jours,2021-07-09T12:37:43.499Z
+Commodity & Ingredient Hedging,Chicago,"120 S LaSalle St STE 2200, Chicago, IL 60603",+13125967755,,2021-08-26T14:42:23.074Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,"Heureusement, le pire service est celui qui offre",2025-10-27T14:35:19.822Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2024-12-26T06:57:43.553Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2024-08-21T18:43:24.608Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,"Pour un simple service, on attend toute la matinée…
+
+Rien qu’à midi, ils avaient déjà servi 43 clients… Le mépris des citoyens est sans limites.",2024-04-22T11:07:03.778Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2024-03-29T12:41:09.508Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,"Si vous pensiez que CIH offrait un mauvais service, attendez de voir cette agence.",2023-08-15T10:50:16.110Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2023-04-05T19:59:24.019Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,"Très agréable, beau et facile",2023-01-24T17:58:03.823Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,Très beau,2022-10-04T14:22:12.380Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,Le pire service et la pire connexion bancaire que vous verrez jamais.,2022-10-03T09:05:40.271Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,Je l'aime,2021-08-23T09:34:21.699Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2021-08-03T17:02:02.125Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2020-08-30T20:33:25.687Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2020-05-20T21:03:02.145Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,L'une des meilleures banques du monde,2020-04-14T02:54:34.980Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2020-02-01T15:42:52.212Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2019-07-13T15:59:03.379Z
+CIH Bank,Fnideq,"187 Av. Hassan II, Fnideq, Maroc",+212522479479,,2018-07-21T20:47:12.438Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,"Ces gars-là, que Dieu les bénisse, se chargeront de tout pour vous, contrairement à certaines personnes qui refusent de traiter avec vous si elles n'en tirent aucun profit.",2026-06-26T09:40:29.205Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2026-05-19T13:59:35.748Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,Un système de transfert automatique devrait être disponible pour les transferts d'argent rapides.,2026-04-03T07:40:25.617Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,Le service est très lent et vous risquez d'attendre toute la journée. Je ne le recommande pas.,2026-02-16T12:10:29.297Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2026-01-05T14:30:52.934Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2025-11-15T12:27:34.339Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,"Sans emploi la plupart du temps, distributeur automatique de billets rarement fonctionnel.",2025-01-14T09:28:11.682Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2024-09-02T07:33:08.701Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2024-05-04T08:16:31.141Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,"Globalement, le service de cette banque est très médiocre. Par exemple, chaque fois que je vais à un distributeur automatique, je le trouve vide ou hors service. Lorsque je vais à un autre guichet, plus loin, je constate le même problème, voire un problème différent. Finalement, je me retrouve à utiliser le distributeur d'une autre banque. Lorsque je dépose une réclamation par téléphone, on ne me donne pas mon numéro de réclamation. Pour moi, cela témoigne d'un manque de considération et d'intérêt pour le client… Si Dieu le veut, je changerai bientôt de banque. Trop, c'est trop.",2024-04-29T11:30:22.192Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2023-10-14T16:40:33.527Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2023-08-17T13:43:37.402Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2023-08-12T13:19:31.212Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2023-06-10T15:24:28.657Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,Pour des raisons inconnues,2022-04-12T10:26:39.005Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2022-03-10T20:08:33.717Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,Diyima est un système familier,2021-09-01T11:53:32.261Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2020-01-14T10:05:06.018Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,Bon service,2019-07-18T22:24:24.891Z
+CIH Bank,Casablanca,"Bd Mohamed VI، Rue Florac, Casablanca 20000, Maroc",+212522479479,,2019-07-16T13:13:09.137Z

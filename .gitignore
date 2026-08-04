@@ -1,0 +1,42 @@
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+
+# Python / Pycache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Large model weight files (>100MB)
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+Scripts/models/bert-sentiment/model.safetensors
+
+# Node / React
+node_modules/
+Dashboard/Frontend/node_modules/
+Dashboard/Frontend/build/
+.npm
+.eslintcache
+
+# Airflow logs and temporary files
+logs/
+plugins/__pycache__/
+dags/__pycache__/
+*.log
+
+# Agent & IDE config
+.agent/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
