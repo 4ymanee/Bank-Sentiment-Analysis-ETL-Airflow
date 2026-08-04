@@ -3,11 +3,12 @@
 # Masquer les fichiers générés / lockfiles pour reclasser Python en langage principal
 # ─────────────────────────────────────────────────────────────────────────────
 
-# Ignorer le package-lock.json des statistiques de langage GitHub
-package-lock.json linguist-generated=true
-Dashboard/Frontend/package-lock.json linguist-generated=true
-Dashboard/Frontend/package-lock.json linguist-vendored
+# Ignorer tout le code frontend pour les statistiques GitHub
+frontend/** linguist-vendored=true
+frontend/package-lock.json linguist-generated=true
 
-# Ignorer les données JSON statiques des statistiques de code
-*.json linguist-documentation=true
-Dashboard/Frontend/public/data/* linguist-documentation=true
+# Ne pas détecter ces langages dans les statistiques du projet
+*.js linguist-detectable=false
+*.jsx linguist-detectable=false
+*.css linguist-detectable=false
+*.html linguist-detectable=false
