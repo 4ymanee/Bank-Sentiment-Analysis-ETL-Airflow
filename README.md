@@ -151,5 +151,5 @@ docker-compose up --build -d
 
 ## 👤 Auteur
 
-* **Aymane El Idrissi** - *Projet de Fin d'Études / Stage*
+* **Aymane El Idrissi**
 * GitHub : [@4ymanee](https://github.com/4ymanee)
