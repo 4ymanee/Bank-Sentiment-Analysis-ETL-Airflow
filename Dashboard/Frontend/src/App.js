@@ -45,6 +45,7 @@ const API_BASE = "http://localhost:8000";
 const MOROCCO_COORDS = {
   "Fnideq": { lat: 35.8467, lng: -5.3597 },
   "Tanger": { lat: 35.7673, lng: -5.7998 },
+  "Tétouan": { lat: 35.5785, lng: -5.3706 },
   "Oujda": { lat: 34.6814, lng: -1.9086 },
   "Fès": { lat: 34.0333, lng: -5.0000 },
   "Meknès": { lat: 33.8935, lng: -5.5473 },
@@ -57,6 +58,11 @@ const MOROCCO_COORDS = {
   "Agadir": { lat: 30.4278, lng: -9.5981 },
   "Laayoune": { lat: 27.1471, lng: -13.1959 },
   "Dakhla": { lat: 23.7031, lng: -15.9547 },
+  "Settat": { lat: 33.0000, lng: -7.6000 },
+  "Temara": { lat: 33.9771, lng: -6.8849 },
+  "Taza": { lat: 34.2050, lng: -4.0050 },
+  "Beni Mellal": { lat: 32.8364, lng: -6.3533 },
+  "Khouribga": { lat: 32.8833, lng: -6.9000 },
 };
 
 const CustomSelect = ({ value, onChange, options, placeholder }) => {
@@ -77,8 +83,8 @@ const CustomSelect = ({ value, onChange, options, placeholder }) => {
 
   return (
     <div className="custom-select-container" ref={selectRef}>
-      <div 
-        className={`custom-select-header ${isOpen ? 'open' : ''}`} 
+      <div
+        className={`custom-select-header ${isOpen ? 'open' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{selectedOption ? selectedOption.label : placeholder}</span>
@@ -86,14 +92,14 @@ const CustomSelect = ({ value, onChange, options, placeholder }) => {
       </div>
       {isOpen && (
         <div className="custom-select-dropdown animate-fade-in">
-          <div 
+          <div
             className={`custom-select-option ${value === "" ? 'selected' : ''}`}
             onClick={() => { onChange(""); setIsOpen(false); }}
           >
             {placeholder}
           </div>
           {options.map((opt, idx) => (
-            <div 
+            <div
               key={idx}
               className={`custom-select-option ${value === opt.value ? 'selected' : ''}`}
               onClick={() => { onChange(opt.value); setIsOpen(false); }}
@@ -758,21 +764,21 @@ export default function App() {
                               if (filters.sentiment === 'neutral') return Math.round(ag.note_moyenne) === 3;
                               return true;
                             })
-                            .slice(0, 5).map((ag, idx) => (
-                            <tr key={idx} className={filters.agency === ag.agence ? 'row-highlight' : ''} onClick={() => handleFilterChange("agency", ag.agence)}>
-                              <td>
-                                <span className={`rank-badge rank-${idx + 1}`}>{idx + 1}</span>
-                              </td>
-                              <td><strong>{ag.agence}</strong></td>
-                              <td>{ag.city}</td>
-                              <td>
-                                <span className="rating-badge">
-                                  {ag.note_moyenne} ★
-                                </span>
-                              </td>
-                              <td>{ag.nb_avis} reviews</td>
-                            </tr>
-                          ))}
+                            .slice(0, 8).map((ag, idx) => (
+                              <tr key={idx} className={filters.agency === ag.agence ? 'row-highlight' : ''} onClick={() => handleFilterChange("agency", ag.agence)}>
+                                <td>
+                                  <span className={`rank-badge rank-${idx + 1}`}>{idx + 1}</span>
+                                </td>
+                                <td><strong>{ag.agence}</strong></td>
+                                <td>{ag.city}</td>
+                                <td>
+                                  <span className="rating-badge">
+                                    {ag.note_moyenne} ★
+                                  </span>
+                                </td>
+                                <td>{ag.nb_avis} reviews</td>
+                              </tr>
+                            ))}
                         </tbody>
                       </table>
                     </div>
@@ -1025,54 +1031,54 @@ export default function App() {
                       return true;
                     })
                     .map((ag, idx) => {
-                    const posPct = ag.nb_avis > 0 ? Math.round((ag.nb_positifs / ag.nb_avis) * 100) : 0;
-                    const negPct = ag.nb_avis > 0 ? Math.round((ag.nb_negatifs / ag.nb_avis) * 100) : 0;
+                      const posPct = ag.nb_avis > 0 ? Math.round((ag.nb_positifs / ag.nb_avis) * 100) : 0;
+                      const negPct = ag.nb_avis > 0 ? Math.round((ag.nb_negatifs / ag.nb_avis) * 100) : 0;
 
-                    return (
-                      <div
-                        key={idx}
-                        className={`agency-perf-card glass-panel animate-scale-up ${filters.agency === ag.agence ? 'focused' : ''}`}
-                        onClick={() => handleFilterChange("agency", ag.agence)}
-                      >
-                        <div className="apc-rank-badge">Rank #{ag.classement || (idx + 1)}</div>
+                      return (
+                        <div
+                          key={idx}
+                          className={`agency-perf-card glass-panel animate-scale-up ${filters.agency === ag.agence ? 'focused' : ''}`}
+                          onClick={() => handleFilterChange("agency", ag.agence)}
+                        >
+                          <div className="apc-rank-badge">Rank #{ag.classement || (idx + 1)}</div>
 
-                        <div className="apc-header">
-                          <h3>{ag.agence}</h3>
-                          <span className="apc-city">{ag.city}</span>
-                        </div>
-
-                        <div className="apc-rating-row">
-                          <span className="apc-rating-value">{ag.note_moyenne.toFixed(2)}</span>
-                          <div className="stars-indicator">
-                            {Array.from({ length: 5 }).map((_, i) => (
-                              <Star
-                                key={i}
-                                size={14}
-                                fill={i < Math.round(ag.note_moyenne) ? "#FFC107" : "transparent"}
-                                color={i < Math.round(ag.note_moyenne) ? "#FFC107" : "#8a9eb5"}
-                              />
-                            ))}
+                          <div className="apc-header">
+                            <h3>{ag.agence}</h3>
+                            <span className="apc-city">{ag.city}</span>
                           </div>
-                          <span className="apc-count">{ag.nb_avis} reviews</span>
-                        </div>
 
-                        <div className="apc-sentiment-bar-label">
-                          <span>Positive ({posPct}%)</span>
-                          <span>Negative ({negPct}%)</span>
-                        </div>
+                          <div className="apc-rating-row">
+                            <span className="apc-rating-value">{ag.note_moyenne.toFixed(2)}</span>
+                            <div className="stars-indicator">
+                              {Array.from({ length: 5 }).map((_, i) => (
+                                <Star
+                                  key={i}
+                                  size={14}
+                                  fill={i < Math.round(ag.note_moyenne) ? "#FFC107" : "transparent"}
+                                  color={i < Math.round(ag.note_moyenne) ? "#FFC107" : "#8a9eb5"}
+                                />
+                              ))}
+                            </div>
+                            <span className="apc-count">{ag.nb_avis} reviews</span>
+                          </div>
 
-                        <div className="apc-sentiment-bar-track">
-                          <div className="bar-positive" style={{ width: `${posPct}%` }}></div>
-                          <div className="bar-negative" style={{ width: `${negPct}%` }}></div>
-                        </div>
+                          <div className="apc-sentiment-bar-label">
+                            <span>Positive ({posPct}%)</span>
+                            <span>Negative ({negPct}%)</span>
+                          </div>
 
-                        <div className="apc-contact-info">
-                          {ag.address && <p><strong>Address:</strong> {ag.address}</p>}
-                          {ag.phone && <p><strong>Phone:</strong> {ag.phone}</p>}
+                          <div className="apc-sentiment-bar-track">
+                            <div className="bar-positive" style={{ width: `${posPct}%` }}></div>
+                            <div className="bar-negative" style={{ width: `${negPct}%` }}></div>
+                          </div>
+
+                          <div className="apc-contact-info">
+                            {ag.address && <p><strong>Address:</strong> {ag.address}</p>}
+                            {ag.phone && <p><strong>Phone:</strong> {ag.phone}</p>}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
                 </div>
               </div>
             )}

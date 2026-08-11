@@ -1031,6 +1031,8 @@ body {
   border-radius: 6px;
   font-size: 11px;
   font-weight: 700;
+  background-color: var(--border-panel);
+  color: var(--text-muted);
 }
 
 .rank-badge.rank-1 {
@@ -1046,12 +1048,6 @@ body {
 .rank-badge.rank-3 {
   background-color: rgba(205, 127, 50, 0.15);
   color: #cd7f32;
-}
-
-.rank-badge.rank-4,
-.rank-badge.rank-5 {
-  background-color: var(--border-panel);
-  color: var(--text-muted);
 }
 
 .rating-badge {
