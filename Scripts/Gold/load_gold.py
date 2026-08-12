@@ -25,14 +25,14 @@ def load_agence_stats(cursor):
             title                                           AS agence,
             city,
             address,
-            phone,
+            REGEXP_REPLACE(phone, '\\.0$', '')              AS phone,
             ROUND(AVG(sentiment)::numeric, 2)              AS note_moyenne,
             COUNT(*)                                        AS nb_avis,
             COUNT(*) FILTER (WHERE sentiment >= 4)         AS nb_positifs,
             COUNT(*) FILTER (WHERE sentiment <= 2)         AS nb_negatifs,
             RANK() OVER (ORDER BY AVG(sentiment) DESC)     AS classement
         FROM silver.cleaned_reviews
-        GROUP BY title, city, address, phone
+        GROUP BY title, city, address, REGEXP_REPLACE(phone, '\\.0$', '')
     """)
     print(f"[GOLD] agence_stats : {cursor.rowcount} agences insérées")
 

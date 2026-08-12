@@ -91,6 +91,14 @@ def calculer_sentiment(texte, tokenizer, model):
         result = model(tokens)
     return int(torch.argmax(result.logits)) + 1  # score 1 à 5
 
+def clean_phone(phone):
+    if phone is None or pd.isna(phone):
+        return ''
+    p = str(phone).strip()
+    if p.endswith('.0'):
+        p = p[:-2]
+    return p
+
 # ─── Chargement Silver ────────────────────────────────────────────────────────
 def load_silver(cursor, tokenizer, model):
     """
@@ -117,9 +125,12 @@ def load_silver(cursor, tokenizer, model):
     print(f"[SILVER] {len(df)} nouveaux avis à traiter depuis Bronze")
 
     if df.empty:
+        # Nettoyage préventif sur Silver au cas où des lignes avaient été insérées avec .0
+        cursor.execute("UPDATE silver.cleaned_reviews SET phone = REGEXP_REPLACE(phone, '\\.0$', '') WHERE phone LIKE '%.0';")
         print("[SILVER] Aucun nouvel avis à traiter.")
         return
 
+    df['phone'] = df['phone'].apply(clean_phone)
     df['commentaire'] = df['text_translated'].apply(filtrer_emojis)
 
     avant = len(df)
@@ -152,13 +163,15 @@ def load_silver(cursor, tokenizer, model):
             row['title'],
             row['city'],
             row['address'],
-            row['phone'],
+            clean_phone(row['phone']),
             row['commentaire'],
             row['published_at'],
             int(row['sentiment'])
         ))
         inseres += 1
 
+    # Nettoyage préventif des téléphones se terminant par .0
+    cursor.execute("UPDATE silver.cleaned_reviews SET phone = REGEXP_REPLACE(phone, '\\.0$', '') WHERE phone LIKE '%.0';")
     print(f"[SILVER] {inseres} avis insérés dans silver.cleaned_reviews")
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────

@@ -12,6 +12,14 @@ def get_connection():
         port=os.environ.get('DB_PORT', '5432')
     )
 
+def clean_phone(phone):
+    if phone is None or pd.isna(phone):
+        return ''
+    p = str(phone).strip()
+    if p.endswith('.0'):
+        p = p[:-2]
+    return p
+
 # ─── Chargement Bronze ────────────────────────────────────────────────────────
 def load_bronze(df, cursor):
     """
@@ -28,11 +36,14 @@ def load_bronze(df, cursor):
             row.get('title'),
             row.get('city'),
             row.get('address'),
-            row.get('phone'),
+            clean_phone(row.get('phone')),
             row.get('textTranslated'),
             row.get('publishedAtDate')
         ))
-    print(f"[BRONZE] {len(df)} lignes insérées dans bronze.raw_reviews")
+    
+    # Nettoyage des téléphones existants se terminant par .0
+    cursor.execute("UPDATE bronze.raw_reviews SET phone = REGEXP_REPLACE(phone, '\\.0$', '') WHERE phone LIKE '%.0';")
+    print(f"[BRONZE] {len(df)} lignes traitées dans bronze.raw_reviews")
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
@@ -44,7 +55,9 @@ if __name__ == "__main__":
         print("[BRONZE] L'étape d'extraction a peut-être échoué.")
         raise SystemExit(1)
     
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, dtype={'phone': str})
+    if 'phone' in df.columns:
+        df['phone'] = df['phone'].apply(clean_phone)
     print(f"[BRONZE] {len(df)} lignes chargées depuis {csv_path}")
     
     if df.empty:

@@ -2,6 +2,14 @@ import pandas as pd
 from apify_client import ApifyClient
 import os
 
+def clean_phone(phone):
+    if phone is None or pd.isna(phone):
+        return ''
+    p = str(phone).strip()
+    if p.endswith('.0'):
+        p = p[:-2]
+    return p
+
 def extract():
     # Initialiser le client Apify avec API_KEY
     client = ApifyClient(os.environ["APIFY_API_TOKEN"])
@@ -40,7 +48,8 @@ if __name__ == "__main__":
             title = place.get('title', '')
             city = place.get('city', '')
             address = place.get('address', '')
-            phone = place.get('phoneUnformatted', place.get('phone', ''))
+            raw_phone = place.get('phoneUnformatted', place.get('phone', ''))
+            phone = clean_phone(raw_phone)
             
             reviews = place.get('reviews', [])
             if isinstance(reviews, list):
@@ -64,6 +73,7 @@ if __name__ == "__main__":
         if all_reviews:
             # Création du DataFrame final aplati
             dataframe = pd.DataFrame(all_reviews)
+            dataframe['phone'] = dataframe['phone'].apply(clean_phone)
             
             # Sauvegarde dans le volume monté /scripts (persistant entre les tâches)
             output_path = '/scripts/extracted_data.csv'
