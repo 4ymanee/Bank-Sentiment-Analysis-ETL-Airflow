@@ -127,6 +127,42 @@ AIRFLOW_UID=50000
 docker-compose up --build -d
 ```
 
+### 4. Lancement en Mode Développement (Local)
+Si vous préférez lancer le Frontend et le Backend localement sans passer par Docker pour le développement :
+
+#### A. Lancer la Base de Données (PostgreSQL) uniquement
+```bash
+docker-compose up db -d
+```
+
+#### B. Démarrer le Backend FastAPI
+1. Rendez-vous dans le dossier Backend :
+   ```bash
+   cd Dashboard/Backend
+   ```
+2. Installez les dépendances :
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Lancez le serveur :
+   ```bash
+   uvicorn main:app --reload --port 8000
+   ```
+
+#### C. Démarrer le Frontend React
+1. Rendez-vous dans le dossier Frontend :
+   ```bash
+   cd ../Frontend
+   ```
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
+3. Lancez le serveur de développement :
+   ```bash
+   npm start
+   ```
+
 ---
 
 ## 🌐 URLs d'Accès aux Services
